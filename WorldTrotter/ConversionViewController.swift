@@ -14,10 +14,21 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
 //        <#code#>
 //    }
     
+    let hour = Calendar.current.component(.hour, from: Date())
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if hour < 13{
+            self.view.backgroundColor = UIColor.cyan
+        } else {
+            self.view.backgroundColor = UIColor.blue
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("Conversion did load!")
+        print(hour)
         updateCelsiusLabel()
     }
     
